@@ -45,7 +45,7 @@ export interface SMTAsset {
 /**
  * Asset symbol string.
  */
-export type AssetSymbol = 'STEEM' | 'VESTS' | 'SBD' | 'TESTS' | 'TBD'
+export type AssetSymbol = 'STEEM' | 'VESTS' | 'SBD' | 'TESTS' | 'TBD' | 'EFTG' | 'EUR'
 
 /**
  * Class representing a steem asset, e.g. `1.000 STEEM` or `12.112233 VESTS`.
@@ -57,7 +57,7 @@ export class Asset {
      */
     public static fromString(string: string, expectedSymbol?: AssetSymbol) {
         const [amountString, symbol] = string.split(' ')
-        if (['STEEM', 'VESTS', 'SBD', 'TESTS', 'TBD'].indexOf(symbol) === -1) {
+        if (['STEEM', 'VESTS', 'SBD', 'TESTS', 'TBD', 'EFTG', 'EUR'].indexOf(symbol) === -1) {
             throw new Error(`Invalid asset symbol: ${ symbol }`)
         }
         if (expectedSymbol && symbol !== expectedSymbol) {
@@ -82,7 +82,7 @@ export class Asset {
              }
              return value
          } else if (typeof value === 'number' && Number.isFinite(value)) {
-             return new Asset(value, symbol || 'STEEM')
+             return new Asset(value, symbol || 'EFTG')
          } else if (typeof value === 'string') {
              return Asset.fromString(value, symbol)
          } else {
@@ -117,6 +117,8 @@ export class Asset {
             case 'TBD':
             case 'STEEM':
             case 'SBD':
+            case 'EFTG':
+            case 'EUR':
                 return 3
             case 'VESTS':
                 return 6
