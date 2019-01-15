@@ -116,8 +116,6 @@ export class Asset {
             case 'TESTS':
             case 'TBD':
             case 'STEEM':
-            case 'EFTG':
-            case 'EUR':
             case 'SBD':
             case 'EFTG':
             case 'EUR':
