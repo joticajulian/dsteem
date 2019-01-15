@@ -245,7 +245,7 @@ OperationSerializers.account_create_with_delegation = OperationDataSerializer(41
     ['extensions', ArraySerializer(VoidSerializer)],
 ])
 
-OperationSerializers.owner_create = OperationDataSerializer(9, [
+OperationSerializers.owner_create = OperationDataSerializer(101, [
     ['creator', StringSerializer],
     ['owner', StringSerializer],
     ['signing_key', PublicKeySerializer],    
