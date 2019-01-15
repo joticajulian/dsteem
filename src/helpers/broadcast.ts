@@ -43,6 +43,7 @@ import {getVestingSharePrice, HexBuffer} from './../steem/misc'
 import {
     AccountCreateOperation,
     AccountCreateWithDelegationOperation,
+    OwnerCreateOperation,
     AccountUpdateOperation,
     ClaimAccountOperation,
     CommentOperation,
