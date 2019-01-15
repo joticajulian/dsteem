@@ -294,7 +294,7 @@ export class BroadcastAPI {
         }
 
         const result = await this.send(this.sign(tx, key))
-        assert(result.expired === false, 'transaction expired')
+        /** assert(result.expired === false, 'transaction expired') */
 
         return result
     }
@@ -310,14 +310,14 @@ export class BroadcastAPI {
      * Broadcast a signed transaction to the network.
      */
     public async send(transaction: SignedTransaction): Promise<TransactionConfirmation> {
-        return this.call('broadcast_transaction_synchronous', [transaction])
+        return this.call('broadcast_transaction', [transaction])
     }
 
     /**
      * Convenience for calling `condenser_api`.
      */
     public call(method: string, params?: any[]) {
-        return this.client.call('condenser_api', method, params)
+        return this.client.call('network_broadcast_api', method, params)
     }
 
 }
